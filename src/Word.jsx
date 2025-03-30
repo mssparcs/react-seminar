@@ -1,8 +1,15 @@
-function Word({ message, author }) {
+import { Link } from 'react-router';
+
+function Word({ message, author, idx }) {
   return (
     <li>
-      <h3>{message}</h3>
-      <p style={{ textAlign: "right" }}>{author}</p>
+      <Link to={{
+        pathname: '/details',
+        search: `?id=${idx}`
+      }}>
+        <h3>{message}</h3>
+        <p style={{ textAlign: "right" }}>{author}</p>
+      </Link>
     </li>
   )
 }

@@ -11,7 +11,7 @@ function App({ mode }) {
     const [displayWords, setDisplayWords] = useState([]);
     const [params, setParams] = useSearchParams();
     useEffect(() => {
-        fetch('https://sparcs.minchan.me/words.json').then((res) => res.json()).then(setAllWords);
+        fetch('https://sparcs.minchan.me/words.json').then((res) => res.json()).then((data) => setAllWords(data.map((e, i) => ({ id: i, ...e }))));
     }, []);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function App({ mode }) {
                     <h1>SPARCS 명언 검색</h1>
                     <ol>
                         {filtered.map((word, index) => (
-                            <Word key={index} message={word.message} author={word.author} />
+                            <Word key={index} message={word.message} author={word.author} idx={word.id} />
                         ))}
                     </ol>
                 </>
@@ -78,7 +78,7 @@ function App({ mode }) {
                     <NewWord addNewWordProp={addNewWord} />
                     <ol>
                         {displayWords.map((word, index) => (
-                            <Word key={index} message={word.message} author={word.author} />
+                            <Word key={index} message={word.message} author={word.author} idx={word.id} />
                         ))}
                     </ol>
                 </>
