@@ -1,0 +1,40 @@
+input, button {
+    outline: solid 1px transparent;
+    transition-duration: .3s;
+    box-sizing: border-box;
+    border-radius: 999px;
+    font-size: 20px;
+    padding: 8px;
+    height: 50px;
+}
+
+button.todo {
+    background: none;
+    /* outline: none; */
+    border: none;
+}
+
+input.existingItem {
+    border: none;
+}
+
+input.newItem {
+    outline: solid 1px #8e8e8e;
+    border: none;
+}
+
+input.todo:hover, button.todo:hover {
+    transition-duration: .3s;
+}
+
+input.todo:hover, input.todo:focus {
+    outline: solid 1px #5484ff;
+}
+
+button.newItem:hover {
+    outline: solid 1px #54ff84;
+}
+
+button.existingItem:hover {
+    outline: solid 1px #ff5454;
+}
